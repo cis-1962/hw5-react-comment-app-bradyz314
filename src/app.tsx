@@ -1,3 +1,11 @@
+import MakePost from "./components/MakePost";
+import './style.css'
+
 export default function App() {
-  return <main>Hello World!</main>;
+  return (
+    <>
+      <h1> CIS 1962 Community</h1>
+      <MakePost />
+    </>
+  );
 }
