@@ -1,15 +1,16 @@
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 
 interface AddPostProps {
     start: string,
-    header: string
+    header: string,
+    children: ReactNode
 }
 
-export default function AddPost({start, header} : AddPostProps) {
+export default function AddPost({start, header, children} : AddPostProps) {
     const [name, setName] = useState('');
     const [content, setContent] = useState(start);
     return (
-        <div className='post-component'>
+        <div className='add-post'>
             <h2>{header}</h2>
             <textarea
                 value={name}

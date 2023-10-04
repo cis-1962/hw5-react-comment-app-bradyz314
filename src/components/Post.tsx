@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 
 interface PostProps {
     name: string,
@@ -9,9 +9,13 @@ interface PostProps {
 export default function Post({name, post, depth}: PostProps) {
     const [replies, setReplies] = useState<PostProps[]>([]);
     return (
-        <div className="post">
-            <textarea>{name}</textarea>
-            <textarea>{post}</textarea>
+        <div 
+            className={`post-container depth-${depth}`} 
+        >
+            <div className='post'>
+                <h3 className='post-name'>{name}</h3>
+                <p className="post-details">{post}</p>
+            </div>
             {replies.map((postP: PostProps) => 
                 <Post name={postP.name} post={postP.post} depth={postP.depth} key={postP.name}/>)
             }

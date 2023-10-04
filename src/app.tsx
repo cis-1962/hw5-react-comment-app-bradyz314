@@ -10,8 +10,9 @@ export default function App() {
       <AddPost 
         start=''
         header='New Post'
-      />
-      <PostSection />
+      >
+        <PostSection />
+      </AddPost>
       <Post name='test' post='This is a test' depth={1}/>
     </>
   );
