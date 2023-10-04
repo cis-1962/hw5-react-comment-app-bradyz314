@@ -3,10 +3,10 @@ import { ReactNode, useState } from 'react';
 interface AddPostProps {
     start: string,
     header: string,
-    children: ReactNode
+    addReply: (name: string, post: string) => void,
 }
 
-export default function AddPost({start, header, children} : AddPostProps) {
+export default function AddPost({start, header, addReply} : AddPostProps) {
     const [name, setName] = useState('');
     const [content, setContent] = useState(start);
     return (
@@ -26,7 +26,11 @@ export default function AddPost({start, header, children} : AddPostProps) {
             />
             <button 
                 type='submit'
-                onClick={() => setContent('Submitted')}
+                onClick={() => {
+                    addReply(name, content);
+                    setName('');
+                    setContent('');
+                }}
                 className='submit-button'
                 disabled = {(!name || !content)}
             >
