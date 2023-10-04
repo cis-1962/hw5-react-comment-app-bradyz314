@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-export default function MakePost() {
+interface AddPostProps {
+    start: string,
+    header: string
+}
+
+export default function AddPost({start, header} : AddPostProps) {
     const [name, setName] = useState('');
-    const [content, setContent] = useState('');
+    const [content, setContent] = useState(start);
     return (
         <div className='post-component'>
-            <h2>New Post</h2>
+            <h2>{header}</h2>
             <textarea
                 value={name}
                 placeholder='Name...'
