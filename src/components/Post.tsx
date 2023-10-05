@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AddPost from "./AddPost";
+import Vote from "./Vote";
 
 interface PostProps {
     name: string,
@@ -10,18 +11,18 @@ interface PostProps {
 export default function Post({name, post, depth}: PostProps) {
     const [replies, setReplies] = useState<PostProps[]>([]);
     const [replying, setReplying] = useState(false);
-    const AddReply = (name: string, post: string) => {
+    const AddReply = (replyName: string, replyPost: string) => {
         setReplies([...replies, {
-            name: name, 
-            post: post, 
+            name: replyName, 
+            post: replyPost, 
             depth: depth + 1}]);
         setReplying(!replying);
     }
     return (
-        <div className={`post${depth === 1 ? ' depth-1' : ''}`}>
+        <div className={`post depth-${depth}`}>
             <h3 className='post-name'>{name}</h3>
             <p className="post-details">{post}</p>
-            {(depth === 3) || (
+            <div className='reply-and-like'>
                 <button 
                     type='submit'
                     onClick={() => setReplying(!replying)}
@@ -30,8 +31,8 @@ export default function Post({name, post, depth}: PostProps) {
                 >
                     Reply
                 </button>
-            )
-            }
+                <Vote />
+            </div>
             {replying && (
                 <AddPost 
                     start={`@${name}`}

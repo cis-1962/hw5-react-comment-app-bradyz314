@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(47, 127, 127);
+    background-color: rgb(61, 160, 160);
     font-family: Verdana, Geneva, Tahoma, sans-serif ;
 }
 
@@ -8,10 +8,10 @@ h1, h2, h3 {
 }
 
 h1 {
-    display: flex;
+    display: inline;
     justify-content: center;
     align-self: center;
-    font-size: 3.5rem;
+    font-size: 3rem;
 }
 
 h2 {
@@ -25,13 +25,26 @@ h3 {
 }
 
 p {
+    font-weight: bolder;
+    color: rgb(19, 102, 102);
     padding: 0 50px;
+}
+
+p.post-details {
+    color: rgb(19, 102, 102);
     margin-bottom: 5px;
 }
 
-button {
+p.like-count {
+    color: rgb(58, 207, 58);
+}
+
+p.dislike-count {
+    color: rgb(165, 61, 32);
+}
+
+button.reply-button, button.submit-button {
     display: flex;
-    justify-content: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: rgb(17, 191, 197);
 }
@@ -46,11 +59,27 @@ button.submit-button {
 }
 
 button.reply-button {
-    align-self: flex-start;
-    margin: 10px 50px;
+    align-self: center;
+    margin-left: 2%;
     width: 50px;
     height: 25px;
+
 }
+
+button.vote-button {
+    background-color: transparent;
+    border: none;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-self: center
+}
+
+button.vote-button:focus {
+    outline: none;
+    border: none;
+}
+
 
 textarea {
     width: 90%;
@@ -75,7 +104,6 @@ div {
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
-    background-color: rgb(61, 160, 160);
 }
 
 div.add-post {
@@ -95,14 +123,38 @@ div.add-post {
 
 div.post {
     align-self: flex-end;
-    margin-left: auto;
-    margin-right: auto;
     height: 20%;
-    width: 70%;
 }
 
 div.depth-1 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
     border-bottom-style: solid;
     border-bottom-color: rgb(129, 200, 224);
     padding: 20px 0px;
+}
+
+div.depth-2, div.depth-3 {
+    width: 90%;
+}
+
+div.reply-and-like {
+    margin-top: 25px;
+    margin-left: 25px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 50%;
+
+}
+
+span.votes {
+    display: flex;
+    flex-direction: row;
+}
+
+img {
+    width: 32px;
+    height: 32px;
 }
